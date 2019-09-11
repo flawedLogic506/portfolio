@@ -1,6 +1,8 @@
 /** @jsx jsx */
-import {css, jsx} from '@emotion/core';
+import {css, jsx, Global} from '@emotion/core';
+import {NavLink} from 'react-router-dom'
 
+import Avatar from './Avatar';
 
 const Sidebar = () => (
   <div css={css`
@@ -8,7 +10,31 @@ const Sidebar = () => (
     background: salmon;
     min-height: 100vh;
   `}>
-    Sidebar
+    <Global styles={css`
+      ul {
+        margin:0;
+        list-style: none;
+      }
+      `} 
+    />
+    <Avatar />
+    <ul>
+      <li>
+        <NavLink to="/">Home</NavLink>
+      </li>
+      <li>
+        <NavLink to="/skills">Skills</NavLink>
+      </li>
+      <li>
+        <NavLink to="/projects">Projects</NavLink>
+      </li>
+      <li>
+        <NavLink to="/graphics">Graphics</NavLink>
+      </li>
+      <li>
+        <NavLink to="/about">About</NavLink>
+      </li>
+    </ul>
   </div>
 );
 
